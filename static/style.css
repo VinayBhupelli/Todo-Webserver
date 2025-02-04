@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  color: #333;
+  padding: 2em;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  justify-content: center;
+}
+
+form input[type="text"],
+form select,
+form input[type="time"] {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 200px;
+}
+
+form button {
+  padding: 0.75em 1.5em;
+  background: #5563DE;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #4451b5;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.sort-container label {
+  color: black;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.column {
+  background: #fff;
+  flex: 1;
+  border-radius: 10px;
+  padding: 1.5em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+}
+
+.column h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: #5563DE;
+}
+
+.dropzone {
+  min-height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone.over {
+  background-color: rgba(85, 99, 222, 0.1);
+}
+
+.todo-item {
+  background: #f9f9f9;
+  border-left: 4px solid #5563DE;
+  padding: 1em;
+  margin-bottom: 0.75em;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  cursor: grab;
+  animation: slideIn 0.3s ease;
+}
+
+.todo-item.dragging {
+  opacity: 0.5;
+}
+
+.todo-item .title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.todo-item.done .title {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-item button {
+  padding: 0.5em 0.75em;
+  background: #5563DE;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.todo-item button:hover {
+  background: #4451b5;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 1em;
+  color: #5563DE;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-content .close:hover {
+  color: #5563DE;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.modal-content button {
+  padding: 0.75em;
+  background: #5563DE;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: #4451b5;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75em 1em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 1em;
+}
+
+.sort-container label {
+  font-size: 1em;
+  color: #5563DE;
+  font-weight: 500;
+}
+
+.sort-container select {
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #333;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sort-container select:hover {
+  border-color: #5563DE;
+}
+
+.sort-container select:focus {
+  outline: none;
+  border-color: #5563DE;
+  box-shadow: 0 0 0 3px rgba(85, 99, 222, 0.2);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Todo App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Todo App</h1>
+    <div class="controls">
+      <form id="todo-form">
+        <input type="text" id="todo-title" placeholder="Enter a new task" required>
+        <select id="todo-due">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="someday">Someday</option>
+        </select>
+        <input type="time" id="todo-deadline" placeholder="Deadline Time">
+        <button type="submit">Add Task</button>
+      </form>
+      <div class="sort-container">
+        <label for="sort-select">Sort Tasks:</label>
+        <select id="sort-select">
+          <option value="custom">Custom (Drag & Drop)</option>
+          <option value="deadline">Deadline</option>
+          <option value="alphabetical">Alphabetical</option>
+          <option value="newToOld">New to Old</option>
+          <option value="oldToNew">Old to New</option>
+        </select>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column" data-category="today">
+        <h2>Today</h2>
+        <div class="dropzone" id="today-dropzone"></div>
+      </div>
+      <div class="column" data-category="tomorrow">
+        <h2>Tomorrow</h2>
+        <div class="dropzone" id="tomorrow-dropzone"></div>
+      </div>
+      <div class="column" data-category="upcoming">
+        <h2>Upcoming</h2>
+        <div class="dropzone" id="upcoming-dropzone"></div>
+      </div>
+      <div class="column" data-category="someday">
+        <h2>Someday</h2>
+        <div class="dropzone" id="someday-dropzone"></div>
+      </div>
+      <div class="column" data-category="completed">
+        <h2>Completed</h2>
+        <div class="dropzone" id="completed-dropzone"></div>
+      </div>
+    </div>
+  </div>
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Task</h2>
+      <form id="edit-form">
+        <input type="text" id="edit-title" placeholder="Task Title" required>
+        <select id="edit-due">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="someday">Someday</option>
+        </select>
+        <input type="time" id="edit-deadline" placeholder="Deadline Time">
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
